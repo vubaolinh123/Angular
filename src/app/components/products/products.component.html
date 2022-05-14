@@ -1,0 +1,25 @@
+<button (click)="onHandleClick()" class="btn btn-primary">Click Me</button>
+<input type="text" [(ngModel)]="productName">
+{{productName}}
+<div *ngIf="isStatus">
+    <table class="table">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Price</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of listProduct; let i = index">
+                <td>{{product.id }}</td>
+                <td>{{product.name }}</td>
+                <td>{{product.price }}</td>
+                <td>
+                    <button class="btn btn-danger" (click)="onHandleDelete(product.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
