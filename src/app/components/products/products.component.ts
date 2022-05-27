@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ProductService } from './../../service/product.service';
+import { Component, Input, OnInit } from '@angular/core';
 import { IProduct } from 'src/app/models/Product';
 
 @Component({
@@ -7,22 +8,29 @@ import { IProduct } from 'src/app/models/Product';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  isStatus = false
-  productName: string = ""
-  listProduct: IProduct[] = [
-    {id: 1, name: "Product A", price: 100},
-    {id: 2, name: "Product B", price: 200},
-  ]
+  detailProduct!: IProduct;
+  productList!: IProduct[];
 
-  constructor() { }
+  @Input() products!:IProduct[];
+  
+  constructor(private productService: ProductService) {
+    this.showProduct();
+   }
 
   ngOnInit(): void {
   }
-  onHandleClick(){
-    this.isStatus = !this.isStatus;
+  showProduct(){
+    this.productService.getProducts().subscribe((data)=>{
+      this.productList = data
+    })
   }
-  onHandleDelete(id:number){
-    this.listProduct = this.listProduct.filter(item=> item.id !== id)
+  onRemoveItem(id: string){
+    const confirm = window.confirm("Bạn có chắc muốn xóa không ?")
+    if(confirm){
+      this.productService.removeProducts(id).subscribe(()=>{
+          this.productList = this.productList.filter(item => item._id !== id);
+      })
+    }
   }
 
 }
