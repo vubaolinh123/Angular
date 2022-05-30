@@ -22,11 +22,27 @@ export class FormProductComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
-    private router: Router
+    private router: Router,
     ) 
     { }
+
   ngOnInit(): void {
-    
+    const id = this.route.snapshot.paramMap.get('id')!;
+    this.productService.getOneProduct(id).subscribe(data=>{
+      
+      this.product = {
+        name: "",
+        price: 0,
+        oldPrice: 0,
+        image: "",
+        size: "",
+        desc: "",
+        status: 0,
+        CategoryProduct: "6249eecb8b2af261e433a958"
+      }
+ 
+      
+    })
   }
   onSubmit(){
     const id = this.route.snapshot.paramMap.get('id')!;
@@ -49,3 +65,4 @@ export class FormProductComponent implements OnInit {
   }
 
 }
+

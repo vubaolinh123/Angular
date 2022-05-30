@@ -10,8 +10,9 @@ export class ProductService {
   API_URL: string = 'http://localhost:3001/api/products';
   constructor(private http: HttpClient) { }
 
-  getProduct(id:any){
-    
+  
+ getOneProduct(id: string): Observable<IProduct[]> {
+    return this.http.get <IProduct[]>(`${this.API_URL}/${id}`)
   }
 
   getProducts(): Observable<IProduct[]> {

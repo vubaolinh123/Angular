@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { IProduct } from './models/Product';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +6,5 @@ import { IProduct } from './models/Product';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  detailProduct!: IProduct;
-  productName: string = ""
+  isCollapsed = false;
 }

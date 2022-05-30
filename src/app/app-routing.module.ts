@@ -6,7 +6,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { ClientLayoutComponent } from './layouts/client-layout/client-layout.component';
 
 const routes: Routes = [
-  {path: "", component: ClientLayoutComponent,
+ {path: "", component: ClientLayoutComponent,
   children: [
           { path: 'product', component: ProductsComponent },
         ]},

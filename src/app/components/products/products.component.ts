@@ -1,5 +1,6 @@
 import { ProductService } from './../../service/product.service';
 import { Component, Input, OnInit } from '@angular/core';
+import { NzTableModule } from 'ng-zorro-antd/table';
 import { IProduct } from 'src/app/models/Product';
 
 @Component({
