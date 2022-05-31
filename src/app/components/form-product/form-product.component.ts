@@ -9,7 +9,8 @@ import { ProductService } from 'src/app/service/product.service';
   styleUrls: ['./form-product.component.css']
 })
 export class FormProductComponent implements OnInit {
-  product: IProduct = {
+  id: string| null = null
+  product: any = {
     name: "",
     price: 0,
     oldPrice: 0,
@@ -27,22 +28,12 @@ export class FormProductComponent implements OnInit {
     { }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id')!;
-    this.productService.getOneProduct(id).subscribe(data=>{
-      
-      this.product = {
-        name: "",
-        price: 0,
-        oldPrice: 0,
-        image: "",
-        size: "",
-        desc: "",
-        status: 0,
-        CategoryProduct: "6249eecb8b2af261e433a958"
-      }
- 
-      
+    this.id = this.route.snapshot.paramMap.get('id')!;
+    if(this.id != ""){
+      this.productService.getOneProduct(this.id).subscribe(data=>{
+      this.product = data      
     })
+    }
   }
   onSubmit(){
     const id = this.route.snapshot.paramMap.get('id')!;

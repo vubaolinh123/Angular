@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DangkyComponent } from './components/dangky/dangky.component';
+import { DangnhapComponent } from './components/dangnhap/dangnhap.component';
 import { FormProductComponent } from './components/form-product/form-product.component';
 import { ProductsComponent } from './components/products/products.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
@@ -9,6 +11,8 @@ const routes: Routes = [
  {path: "", component: ClientLayoutComponent,
   children: [
           { path: 'product', component: ProductsComponent },
+          { path: 'dangky', component: DangkyComponent },
+          { path: 'dangnhap', component: DangnhapComponent },
         ]},
   {path: "admin", component: AdminLayoutComponent,
     children: [

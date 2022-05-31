@@ -4,3 +4,20 @@
 @import "~ng-zorro-antd/ng-zorro-antd.min.css";
 @import "~ng-zorro-antd/style/index.min.css"; /* Import base styles */
 @import "~ng-zorro-antd/button/style/index.min.css";  /* Import one component's styles */
+
+
+.login-form {
+    max-width: 300px;
+}
+
+.login-form-margin {
+margin-bottom: 16px;
+}
+
+.login-form-forgot {
+float: right;
+}
+
+.login-form-button {
+width: 100%;
+}

@@ -7,8 +7,10 @@ import { ProductsComponent } from './components/products/products.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ThongkeComponent } from './components/thongke/thongke.component';
+import {DangkyComponent} from './components/dangky/dangky.component';
 import { HttpClientModule } from '@angular/common/http'
 import { RouterModule } from '@angular/router';
+import {DangnhapComponent} from './components/dangnhap/dangnhap.component'
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { ClientLayoutComponent } from './layouts/client-layout/client-layout.component';
 import { FormProductComponent } from './components/form-product/form-product.component';
@@ -21,7 +23,12 @@ import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzTableModule } from 'ng-zorro-antd/table';
-
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzProgressModule } from 'ng-zorro-antd/progress';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzSkeletonModule } from 'ng-zorro-antd/skeleton';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { ReactiveFormsModule } from '@angular/forms';
 registerLocaleData(en);
 
 
@@ -35,6 +42,8 @@ registerLocaleData(en);
     AdminLayoutComponent,
     ClientLayoutComponent,
     FormProductComponent,
+    DangkyComponent,
+    DangnhapComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +55,13 @@ registerLocaleData(en);
     IconsProviderModule,
     NzLayoutModule,
     NzMenuModule,
-    NzTableModule
+    NzTableModule,
+    NzFormModule,
+    NzProgressModule,
+    NzInputModule,
+    NzSkeletonModule,
+    NzButtonModule,
+    ReactiveFormsModule
   ],
   
   providers: [{ provide: NZ_I18N, useValue: en_US }],
