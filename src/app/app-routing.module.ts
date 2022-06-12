@@ -8,12 +8,12 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { ClientLayoutComponent } from './layouts/client-layout/client-layout.component';
 
 const routes: Routes = [
- {path: "", component: ClientLayoutComponent,
-  children: [
-          { path: 'product', component: ProductsComponent },
-          { path: 'dangky', component: DangkyComponent },
-          { path: 'dangnhap', component: DangnhapComponent },
-        ]},
+  {path: "", component: ClientLayoutComponent,
+    children: [
+            { path: 'product', component: ProductsComponent },
+            { path: 'dangky', component: DangkyComponent },
+            { path: 'dangnhap', component: DangnhapComponent },
+          ]},
   {path: "admin", component: AdminLayoutComponent,
     children: [
           { path: '', component: ProductsComponent },

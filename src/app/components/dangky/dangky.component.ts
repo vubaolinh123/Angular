@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-dangky',
@@ -8,10 +10,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class DangkyComponent implements OnInit {
  validateForm!: FormGroup; 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private auth: AuthService,
+    private router: Router,
+    private route: ActivatedRoute
+    ) { }
   ngOnInit(): void {
     this.validateForm = this.fb.group({
-      userName: [null, [Validators.required]],
+      name: [null, [Validators.required]],
       password: [null, [Validators.required]],
       email: [null, [Validators.required]],
       remember: [true]
@@ -20,7 +27,7 @@ export class DangkyComponent implements OnInit {
 
   submitForm(): void {
     if (this.validateForm.valid) {
-      console.log('submit', this.validateForm.value);
+      this.auth.register(this.validateForm.value).subscribe()
     } else {
       Object.values(this.validateForm.controls).forEach(control => {
         if (control.invalid) {
